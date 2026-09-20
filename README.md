@@ -25,6 +25,12 @@ cp studio-temple-magazine/.env.example studio-temple-magazine/.env
 ```
 
 ```sh
+npm run dev:all        # site + Studio in one terminal
+```
+
+Or two terminals:
+
+```sh
 npm run dev            # Astro at http://localhost:4321
 npm run dev:studio     # Studio at http://localhost:3333
 ```
@@ -60,8 +66,9 @@ npx sanity@latest cors add http://localhost:4321 --credentials --project bry1zd8
 
 | Command | Action |
 | --- | --- |
-| `npm run dev` | Astro site |
-| `npm run dev:studio` | Sanity Studio |
+| `npm run dev:all` | Site and Studio together |
+| `npm run dev` | Astro site only |
+| `npm run dev:studio` | Sanity Studio only |
 | `npm run build` | Production build of the site |
 | `npm run build:studio` | Production build of the Studio |
 

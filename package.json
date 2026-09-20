@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "astro dev",
     "dev:studio": "npm run dev --prefix studio-temple-magazine",
+    "dev:all": "concurrently -n site,studio -c cyan,magenta \"npm run dev\" \"npm run dev:studio\"",
     "build": "astro build",
     "build:studio": "npm run build --prefix studio-temple-magazine",
     "preview": "astro preview",
@@ -23,5 +24,8 @@
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5"
   }
 }
