@@ -12,7 +12,7 @@ Sanity’s setup wizard also offers a Next.js path. This repo stays on Astro, wi
 
 ## Sanity project
 
-- Project: Temple Magazine (`brylzd8m`)
+- Project: Temple Magazine (`bry1zd8m`)
 - Dataset: `production`
 
 ## Setup
@@ -21,6 +21,7 @@ Sanity’s setup wizard also offers a Next.js path. This repo stays on Astro, wi
 npm install
 npm install --prefix studio-temple-magazine
 cp .env.example .env
+cp studio-temple-magazine/.env.example studio-temple-magazine/.env
 ```
 
 ```sh
@@ -52,7 +53,7 @@ Add these CORS origins (with credentials) in [sanity.io/manage](https://www.sani
 Or, once you are logged in locally:
 
 ```sh
-npx sanity@latest cors add http://localhost:4321 --credentials --project brylzd8m
+npx sanity@latest cors add http://localhost:4321 --credentials --project bry1zd8m
 ```
 
 ## Commands

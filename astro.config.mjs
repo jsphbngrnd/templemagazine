@@ -9,7 +9,7 @@ const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
 	'',
 );
 
-const projectId = PUBLIC_SANITY_PROJECT_ID || 'brylzd8m';
+const projectId = PUBLIC_SANITY_PROJECT_ID || 'bry1zd8m';
 const dataset = PUBLIC_SANITY_DATASET || 'production';
 
 // https://astro.build/config
