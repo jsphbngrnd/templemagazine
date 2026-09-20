@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "dev:studio": "npm run dev --prefix studio-temple-magazine",
     "dev:all": "concurrently -n site,studio -c cyan,magenta \"npm run dev\" \"npm run dev:studio\"",
+    "setup-env": "cp .env.example .env && cp studio-temple-magazine/.env.example studio-temple-magazine/.env",
     "build": "astro build",
     "build:studio": "npm run build --prefix studio-temple-magazine",
     "preview": "astro preview",
