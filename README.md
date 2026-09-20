@@ -1,54 +1,59 @@
 # Temple Magazine
 
-Astro + Sanity rebuild of [templemagazine.co](https://www.templemagazine.co/), migrating off WordPress.
+Astro frontend + standalone Sanity Studio for the WordPress migration of [templemagazine.co](https://www.templemagazine.co/).
 
-## Stack
+```text
+templemagazine/                 # this repo — Astro site
+├── src/                        # frontend
+└── studio-temple-magazine/     # Sanity Studio (standalone)
+```
 
-- [Astro](https://astro.build) (`basics` starter)
-- [Sanity](https://www.sanity.io) via [`@sanity/astro`](https://www.sanity.io/docs/astro/introduction)
-- Embedded Studio at `/admin`
+Sanity’s setup wizard also offers a Next.js path. This repo stays on Astro, with the Studio as its own app — the “existing site” option.
+
+## Sanity project
+
+- Project: Temple Magazine (`brylzd8m`)
+- Dataset: `production`
 
 ## Setup
 
 ```sh
 npm install
+npm install --prefix studio-temple-magazine
 cp .env.example .env
 ```
 
-Create a Sanity project at [sanity.io/manage](https://www.sanity.io/manage), then set:
+```sh
+npm run dev            # Astro at http://localhost:4321
+npm run dev:studio     # Studio at http://localhost:3333
+```
 
-```
-PUBLIC_SANITY_PROJECT_ID=yourProjectId
-PUBLIC_SANITY_DATASET=production
-```
+Sign in to Studio with the same account that created the project. Add these CORS origins (with credentials) in [sanity.io/manage](https://www.sanity.io/manage/project/brylzd8m):
+
+- `http://localhost:3333`
+- `http://localhost:4321`
+
+Or, once you are logged in locally:
 
 ```sh
-npm run dev
+npx sanity@latest cors add http://localhost:4321 --credentials --project brylzd8m
 ```
-
-- Site: [http://localhost:4321](http://localhost:4321)
-- Studio: [http://localhost:4321/admin](http://localhost:4321/admin)
-
-Add `http://localhost:4321` as a CORS origin (with credentials) in the Sanity project API settings when you first open Studio.
 
 ## Commands
 
 | Command | Action |
 | --- | --- |
-| `npm install` | Install dependencies |
-| `npm run dev` | Dev server at `localhost:4321` |
-| `npm run build` | Production build to `./dist/` |
-| `npm run preview` | Preview the production build |
-| `npm run astro ...` | Astro CLI (`astro add`, `astro check`) |
+| `npm run dev` | Astro site |
+| `npm run dev:studio` | Sanity Studio |
+| `npm run build` | Production build of the site |
+| `npm run build:studio` | Production build of the Studio |
 
 ## Content model
 
-Starter Sanity documents for the WordPress migration:
-
-- **Article** — posts
-- **Page** — static pages (About, Contact, …)
+- **Article** — WordPress posts
+- **Page** — static pages
 - **Issue** — magazine issues
 - **Author** — bylines
-- **Category** — topics / sections
+- **Category** — topics
 
-Each article, page, author, and category has a hidden `wordpressId` for import mapping.
+Article, page, author, and category include a hidden `wordpressId` for import mapping.

@@ -1,28 +1,32 @@
+import { UserIcon } from '@sanity/icons/User';
 import { defineField, defineType } from 'sanity';
 
-export const category = defineType({
-	name: 'category',
-	title: 'Category',
+export const author = defineType({
+	name: 'author',
+	title: 'Author',
 	type: 'document',
+	icon: UserIcon,
 	fields: [
 		defineField({
-			name: 'title',
-			title: 'Title',
+			name: 'name',
 			type: 'string',
 			validation: (rule) => rule.required(),
 		}),
 		defineField({
 			name: 'slug',
-			title: 'Slug',
 			type: 'slug',
-			options: { source: 'title' },
+			options: { source: 'name' },
 			validation: (rule) => rule.required(),
 		}),
 		defineField({
-			name: 'description',
-			title: 'Description',
+			name: 'bio',
 			type: 'text',
-			rows: 3,
+			rows: 4,
+		}),
+		defineField({
+			name: 'portrait',
+			type: 'image',
+			options: { hotspot: true },
 		}),
 		defineField({
 			name: 'wordpressId',
