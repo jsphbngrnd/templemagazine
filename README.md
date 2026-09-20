@@ -28,7 +28,23 @@ npm run dev            # Astro at http://localhost:4321
 npm run dev:studio     # Studio at http://localhost:3333
 ```
 
-Sign in to Studio with the same account that created the project. Add these CORS origins (with credentials) in [sanity.io/manage](https://www.sanity.io/manage/project/brylzd8m):
+Sign in to Studio with the **same Sanity account** that created the project. “Project not found” almost always means you logged in with a different Google/GitHub/email than the one used on [sanity.io/manage](https://www.sanity.io/manage).
+
+If Manage shows a different project ID, put it in `.env` and `studio-temple-magazine/.env`:
+
+```
+PUBLIC_SANITY_PROJECT_ID=yourActualId
+PUBLIC_SANITY_DATASET=production
+```
+
+```
+SANITY_STUDIO_PROJECT_ID=yourActualId
+SANITY_STUDIO_DATASET=production
+```
+
+Then restart both dev servers.
+
+Add these CORS origins (with credentials) in [sanity.io/manage](https://www.sanity.io/manage):
 
 - `http://localhost:3333`
 - `http://localhost:4321`
